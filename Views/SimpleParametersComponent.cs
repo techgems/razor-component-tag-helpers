@@ -12,7 +12,7 @@ public class SimpleParametersComponentModel : RazorTagHelperModel
 [HtmlTargetElement("simple-parameters")]
 public class SimpleParametersComponent : RazorTagHelper
 {
-    public SimpleParametersComponent(IRazorRenderer razorRenderer) : base(razorRenderer)
+    public SimpleParametersComponent()
     {
     }
 

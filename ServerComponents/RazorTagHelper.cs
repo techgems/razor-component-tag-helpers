@@ -8,12 +8,6 @@ namespace RazorTagHelpers.ServerComponents;
 
 public abstract class RazorTagHelper : TagHelper
 {
-    private readonly IRazorRenderer _razorRenderer;
-
-    public RazorTagHelper(IRazorRenderer razorRenderer)
-    {
-        _razorRenderer = razorRenderer;
-    }
 
     [HtmlAttributeNotBound]
     [ViewContext]
@@ -41,7 +35,10 @@ public abstract class RazorTagHelper : TagHelper
             model.ChildContent = childContent;
         }
 
-        var content = await _razorRenderer.RenderAsContent(viewRoute, model, ViewContext);
+        IRazorRenderer? razorRenderer = ViewContext.HttpContext.RequestServices.GetService<IRazorRenderer>();
+        ArgumentNullException.ThrowIfNull(razorRenderer);
+
+        var content = await razorRenderer.RenderAsContent(viewRoute, model, ViewContext);
         output.Content.SetHtmlContent(content);
         output.TagName = null;
     }
@@ -53,7 +50,10 @@ public abstract class RazorTagHelper : TagHelper
             throw new ArgumentNullException(nameof(ViewContext));
         }
 
-        var content = await _razorRenderer.RenderAsContent<object>(viewRoute, null, ViewContext);
+        IRazorRenderer? razorRenderer = ViewContext.HttpContext.RequestServices.GetService<IRazorRenderer>();
+        ArgumentNullException.ThrowIfNull(razorRenderer);
+
+        var content = await razorRenderer.RenderAsContent<object>(viewRoute, null, ViewContext);
 
         output.TagName = null;
         output.Content.SetHtmlContent(content);

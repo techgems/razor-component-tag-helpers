@@ -11,7 +11,7 @@ public class HelloWorldComponentModel : RazorTagHelperModel
 [HtmlTargetElement("hello-world")]
 public class HelloWorldComponent : RazorTagHelper
 {
-    public HelloWorldComponent(IRazorRenderer razorRenderer) : base(razorRenderer)
+    public HelloWorldComponent()
     {
     }
 

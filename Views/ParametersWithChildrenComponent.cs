@@ -12,7 +12,7 @@ public class ParametersWithChildrenComponentModel : RazorTagHelperModel
 [HtmlTargetElement("parameters-children")]
 public class ParametersWithChildrenComponent : RazorTagHelper
 {
-    public ParametersWithChildrenComponent(IRazorRenderer razorRenderer) : base(razorRenderer)
+    public ParametersWithChildrenComponent()
     {
     }
 

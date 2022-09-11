@@ -62,5 +62,19 @@ public abstract class RazorComponentTagHelper : TagHelper
         output.TagName = null;
         output.Content.SetHtmlContent(content);
     }
+
+    protected async Task RenderPartialView(TagHelperOutput output)
+    {
+        string defaultViewPath = $"~/TagHelpers/{GetType().Namespace!.Split('.').Last()}/Default.cshtml";
+
+        await RenderPartialView(defaultViewPath, output);
+    }
+
+    protected async Task RenderPartialView<T>(TagHelperOutput output, T model) where T : ComponentTagHelperModel
+    {
+        string defaultViewPath = $"~/TagHelpers/{GetType().Namespace!.Split('.').Last()}/Default.cshtml";
+
+        await RenderPartialView(defaultViewPath, output, model);
+    }
 }
 

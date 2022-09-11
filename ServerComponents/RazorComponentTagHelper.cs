@@ -13,21 +13,23 @@ public abstract class RazorComponentTagHelper : TagHelper
     [ViewContext]
     public ViewContext? ViewContext { get; set; }
 
-    protected async Task<string> GetChildHtmlAsString(TagHelperOutput output)
-    {
-        var childContent = await output.GetChildContentAsync();
-        var trimmedContent = childContent.GetContent().Trim();
-
-        return trimmedContent;
-    }
-
-    protected async Task RenderPartialView<T>(string viewRoute, TagHelperOutput output, T model) where T : ComponentTagHelperModel
+    private IHtmlHelper GetHtmlHelper()
     {
         if (ViewContext is null)
         {
             throw new ArgumentNullException(nameof(ViewContext));
         }
 
+        IHtmlHelper? htmlHelper = ViewContext.HttpContext.RequestServices.GetService<IHtmlHelper>();
+        ArgumentNullException.ThrowIfNull(htmlHelper);
+
+        (htmlHelper as IViewContextAware)!.Contextualize(ViewContext);
+
+        return htmlHelper;
+    }
+
+    protected async Task RenderPartialView<T>(string viewRoute, TagHelperOutput output, T model) where T : ComponentTagHelperModel
+    {
         var childContent = await output.GetChildContentAsync();
 
         if (childContent is not null)
@@ -35,10 +37,8 @@ public abstract class RazorComponentTagHelper : TagHelper
             model.ChildContent = childContent;
         }
 
-        IHtmlHelper? htmlHelper = ViewContext.HttpContext.RequestServices.GetService<IHtmlHelper>();
-        ArgumentNullException.ThrowIfNull(htmlHelper);
+        var htmlHelper = GetHtmlHelper();
 
-        (htmlHelper as IViewContextAware)!.Contextualize(ViewContext);
         var content = await htmlHelper.PartialAsync(viewRoute, model);
 
         output.Content.SetHtmlContent(content);
@@ -47,17 +47,9 @@ public abstract class RazorComponentTagHelper : TagHelper
 
     protected async Task RenderPartialView(string viewRoute, TagHelperOutput output)
     {
-        if (ViewContext is null)
-        {
-            throw new ArgumentNullException(nameof(ViewContext));
-        }
+        var htmlHelper = GetHtmlHelper();
 
-        IHtmlHelper? htmlHelper = ViewContext.HttpContext.RequestServices.GetService<IHtmlHelper>();
-        ArgumentNullException.ThrowIfNull(htmlHelper);
-
-        (htmlHelper as IViewContextAware)!.Contextualize(ViewContext);
         var content = await htmlHelper.PartialAsync(viewRoute, null);
-
 
         output.TagName = null;
         output.Content.SetHtmlContent(content);

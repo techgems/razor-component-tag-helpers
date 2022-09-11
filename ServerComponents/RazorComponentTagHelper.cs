@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Threading.Tasks;
 
-namespace RazorTagHelpers.ServerComponents;
+namespace TagHelperComponents.ServerComponents;
 
-public abstract class RazorTagHelper : TagHelper
+public abstract class RazorComponentTagHelper : TagHelper
 {
 
     [HtmlAttributeNotBound]
@@ -21,7 +21,7 @@ public abstract class RazorTagHelper : TagHelper
         return trimmedContent;
     }
 
-    protected async Task RenderPartialView<T>(string viewRoute, TagHelperOutput output, T model) where T : RazorTagHelperModel
+    protected async Task RenderPartialView<T>(string viewRoute, TagHelperOutput output, T model) where T : ComponentTagHelperModel
     {
         if (ViewContext is null)
         {
@@ -35,10 +35,12 @@ public abstract class RazorTagHelper : TagHelper
             model.ChildContent = childContent;
         }
 
-        IRazorRenderer? razorRenderer = ViewContext.HttpContext.RequestServices.GetService<IRazorRenderer>();
-        ArgumentNullException.ThrowIfNull(razorRenderer);
+        IHtmlHelper? htmlHelper = ViewContext.HttpContext.RequestServices.GetService<IHtmlHelper>();
+        ArgumentNullException.ThrowIfNull(htmlHelper);
 
-        var content = await razorRenderer.RenderAsContent(viewRoute, model, ViewContext);
+        (htmlHelper as IViewContextAware)!.Contextualize(ViewContext);
+        var content = await htmlHelper.PartialAsync(viewRoute, model);
+
         output.Content.SetHtmlContent(content);
         output.TagName = null;
     }
@@ -50,10 +52,12 @@ public abstract class RazorTagHelper : TagHelper
             throw new ArgumentNullException(nameof(ViewContext));
         }
 
-        IRazorRenderer? razorRenderer = ViewContext.HttpContext.RequestServices.GetService<IRazorRenderer>();
-        ArgumentNullException.ThrowIfNull(razorRenderer);
+        IHtmlHelper? htmlHelper = ViewContext.HttpContext.RequestServices.GetService<IHtmlHelper>();
+        ArgumentNullException.ThrowIfNull(htmlHelper);
 
-        var content = await razorRenderer.RenderAsContent<object>(viewRoute, null, ViewContext);
+        (htmlHelper as IViewContextAware)!.Contextualize(ViewContext);
+        var content = await htmlHelper.PartialAsync(viewRoute, null);
+
 
         output.TagName = null;
         output.Content.SetHtmlContent(content);

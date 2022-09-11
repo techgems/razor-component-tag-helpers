@@ -1,10 +1,7 @@
-using RazorTagHelpers.DI;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddComponentDependencies();
 
 var app = builder.Build();
 

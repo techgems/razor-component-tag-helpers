@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using RazorTagHelpers.ServerComponents;
+using TagHelperComponents.ServerComponents;
 
-namespace RazorTagHelpers.Views;
+namespace TagHelperComponents.Views;
 
-public class ParametersWithChildrenComponentModel : RazorTagHelperModel
+public class ParametersWithChildrenComponentModel : ComponentTagHelperModel
 {
     public string Sample { get; set; } = string.Empty;
 }
 
 
 [HtmlTargetElement("parameters-children")]
-public class ParametersWithChildrenComponent : RazorTagHelper
+public class ParametersWithChildrenComponent : RazorComponentTagHelper
 {
     public ParametersWithChildrenComponent()
     {

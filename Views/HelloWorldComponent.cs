@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using ServerComponents.ServerComponents;
+using RazorTagHelpers.ServerComponents;
 
-namespace ServerComponents.Views;
+namespace RazorTagHelpers.Views;
 
-public class HelloWorldComponentModel : ServerComponentModel
+public class HelloWorldComponentModel : RazorTagHelperModel
 {
 }
 
 
 [HtmlTargetElement("hello-world")]
-public class HelloWorldComponent : ServerComponent
+public class HelloWorldComponent : RazorTagHelper
 {
     public HelloWorldComponent(IRazorRenderer razorRenderer) : base(razorRenderer)
     {

@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerComponents.ServerComponents;
+namespace RazorTagHelpers.ServerComponents;
 
 public class RazorRenderer : IRazorRenderer
 {
@@ -26,6 +26,7 @@ public class RazorRenderer : IRazorRenderer
         _html = html;
     }
 
+    //TO DO: Investigate performance to know if there is a processing or memory gain in having a singleton razor renderer as opposed to a scoped HtmlHelper powered razor renderer.
     public async Task<IHtmlContent> RenderAsContent<T>(string path, T? model, ViewContext viewContext)
     {
         (_html as IViewContextAware)!.Contextualize(viewContext);

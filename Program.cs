@@ -1,4 +1,4 @@
-using ServerComponents.DI;
+using RazorTagHelpers.DI;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Threading.Tasks;
 
-namespace ServerComponents.ServerComponents;
+namespace RazorTagHelpers.ServerComponents;
 
-public abstract class ServerComponent : TagHelper
+public abstract class RazorTagHelper : TagHelper
 {
     private readonly IRazorRenderer _razorRenderer;
 
-    public ServerComponent(IRazorRenderer razorRenderer)
+    public RazorTagHelper(IRazorRenderer razorRenderer)
     {
         _razorRenderer = razorRenderer;
     }
@@ -27,7 +27,7 @@ public abstract class ServerComponent : TagHelper
         return trimmedContent;
     }
 
-    protected async Task RenderPartialView<T>(string viewRoute, TagHelperOutput output, T model) where T : ServerComponentModel
+    protected async Task RenderPartialView<T>(string viewRoute, TagHelperOutput output, T model) where T : RazorTagHelperModel
     {
         if (ViewContext is null)
         {

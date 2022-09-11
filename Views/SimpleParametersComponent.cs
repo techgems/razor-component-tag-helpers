@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using ServerComponents.ServerComponents;
+using RazorTagHelpers.ServerComponents;
 
-namespace ServerComponents.Views;
+namespace RazorTagHelpers.Views;
 
-public class SimpleParametersComponentModel : ServerComponentModel
+public class SimpleParametersComponentModel : RazorTagHelperModel
 {
     public string Sample { get; set; } = string.Empty;
 }
 
 
 [HtmlTargetElement("simple-parameters")]
-public class SimpleParametersComponent : ServerComponent
+public class SimpleParametersComponent : RazorTagHelper
 {
     public SimpleParametersComponent(IRazorRenderer razorRenderer) : base(razorRenderer)
     {

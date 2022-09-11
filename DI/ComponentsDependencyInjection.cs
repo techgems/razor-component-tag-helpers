@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using ServerComponents.ServerComponents;
+using RazorTagHelpers.ServerComponents;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerComponents.DI;
+namespace RazorTagHelpers.DI;
 
 public static class ComponentsDependencyInjection
 {

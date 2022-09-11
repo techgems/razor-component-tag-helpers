@@ -16,4 +16,4 @@ The key was to use Tag Helpers, but to extend them with the ability to render ra
 
 If I were to give an answer to [this](https://stackoverflow.com/questions/55206787/viewcomponents-with-children/71130954#71130954) stack overflow question today, I would point them to this repository.
 
-This is the short version of it, but you can read more about this approach in my blog post [here](https://techgems.net/posts/2022/2022-08-31-server-components-with-razor-views/).
+This is the short version of it, but you can read more about this approach and other ways to compose UI in ASP.NET Core in my [blog post](https://techgems.net/posts/2022/2022-09-10-ui-composition-in-asp-net-core/).

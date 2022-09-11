@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerComponents.ServerComponents;
+namespace RazorTagHelpers.ServerComponents;
 
-public abstract class ServerComponentModel
+public abstract class RazorTagHelperModel
 {
     public TagHelperContent? ChildContent { get; set; }
 }

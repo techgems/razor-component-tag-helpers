@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using TagHelperComponents.ServerComponents;
+using TechGems.TagHelperComponents;
+
 
 namespace TagHelperComponents.Views;
-
-public class SimpleParametersComponentModel : ComponentTagHelperModel
-{
-    public string Sample { get; set; } = string.Empty;
-}
-
 
 [HtmlTargetElement("simple-parameters")]
 public class SimpleParametersComponent : RazorComponentTagHelper
@@ -21,11 +16,6 @@ public class SimpleParametersComponent : RazorComponentTagHelper
 
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
-        var model = new SimpleParametersComponentModel()
-        {
-            Sample = Sample
-        };
-
-        await RenderPartialView("~/Views/SimpleParameters.cshtml", output, model);
+        await RenderPartialView("~/Views/SimpleParameters.cshtml", output);
     }
 }

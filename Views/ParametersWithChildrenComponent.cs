@@ -1,13 +1,7 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using TagHelperComponents.ServerComponents;
+using TechGems.TagHelperComponents;
 
 namespace TagHelperComponents.Views;
-
-public class ParametersWithChildrenComponentModel : ComponentTagHelperModel
-{
-    public string Sample { get; set; } = string.Empty;
-}
-
 
 [HtmlTargetElement("parameters-children")]
 public class ParametersWithChildrenComponent : RazorComponentTagHelper
@@ -21,11 +15,6 @@ public class ParametersWithChildrenComponent : RazorComponentTagHelper
 
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
-        var model = new ParametersWithChildrenComponentModel()
-        {
-            Sample = Sample
-        };
-
-        await RenderPartialView("~/Views/ParametersWithChildren.cshtml", output, model);
+        await RenderPartialView("~/Views/ParametersWithChildren.cshtml", output);
     }
 }

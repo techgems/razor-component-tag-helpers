@@ -4,6 +4,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>4f9f8f90-8d46-498a-bd9d-93f2b96f5fc6</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TechGems.TagHelperComponents" Version="0.1.0" />
+  </ItemGroup>
 
 </Project>

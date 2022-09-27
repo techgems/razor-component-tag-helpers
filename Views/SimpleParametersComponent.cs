@@ -14,8 +14,4 @@ public class SimpleParametersComponent : RazorComponentTagHelper
     [HtmlAttributeName("sample")]
     public string Sample { get; set; } = string.Empty;
 
-    //public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
-    //{
-    //    await RenderPartialView("~/Views/SimpleParameters.cshtml", output);
-    //}
 }

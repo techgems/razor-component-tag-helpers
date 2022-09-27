@@ -8,7 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TagHelperComponents\TechGems.TagHelperComponents.csproj" />
+    <Compile Remove="TagHelperComponents\**" />
+    <Content Remove="TagHelperComponents\**" />
+    <EmbeddedResource Remove="TagHelperComponents\**" />
+    <None Remove="TagHelperComponents\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="TagHelperComponents\TechGems.TagHelperComponents.csproj" />
   </ItemGroup>
 
 </Project>

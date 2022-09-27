@@ -6,12 +6,12 @@ namespace TagHelperComponents.Views;
 [HtmlTargetElement("hello-world")]
 public class HelloWorldComponent : RazorComponentTagHelper
 {
-    public HelloWorldComponent()
+    public HelloWorldComponent() : base("~/Views/HelloWorld.cshtml")
     {
     }
 
-    public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
-    {
-        await RenderPartialView("~/Views/HelloWorld.cshtml", output);
-    }
+    //public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+    //{
+    //    await RenderPartialView("~/Views/HelloWorld.cshtml", output);
+    //}
 }

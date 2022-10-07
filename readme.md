@@ -1,19 +1,10 @@
-﻿# Server Components
+﻿# Razor Component Tag Helpers
 
-## Why server components?
+Razor Component Tag Helpers is a one file ASP.NET Core library that allows you to write UI components while maintaining compatibility with Razor Pages and MVC.
 
-The motivation behind this code sample came from multiple places. 
+- [Documentation](https://razor-components.techgems.net/)
+- [Nuget Package](https://www.nuget.org/packages/TechGems.RazorComponentTagHelpers)
 
-1) I was working in an application where we needed to use MVC due to a restriction of the customer.
+## Name change
 
-2) I wanted some kind of UI composition and using partials everywhere wasn't working for me since having to write the relative path of the razor view was a chore every time. It also wasn't clear what the partial was unless you knew the file, which made me give an explanation everytime to the other developer in my team that were following my lead.
-
-3) Even after I discovered ViewComponents, I noticed the lacked a specific feature that every client side UI library has: The ability to have child content.
-
-Because of this, I slowly but surely polished an MVC only (no Blazor) approach to creating server rendered components with no lifecycle.
-
-The key was to use Tag Helpers, but to extend them with the ability to render razor views and to render children in the view without having to call @Html.Raw() every time.
-
-If I were to give an answer to [this](https://stackoverflow.com/questions/55206787/viewcomponents-with-children/71130954#71130954) stack overflow question today, I would point them to this repository.
-
-This is the short version of it, but you can read more about this approach and other ways to compose UI in ASP.NET Core in my [blog post](https://techgems.net/posts/2022/2022-09-10-ui-composition-in-asp-net-core/).
+The nuget package for this library was previously called `TechGems.TagHelperComponents`, but since [Tag Helper Components](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/th-components?view=aspnetcore-6.0) are a different concept in ASP.NET Core, I decided to rename the library to Razor Component Tag Helpers.

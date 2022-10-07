@@ -1,0 +1,43 @@
+baseURL = "/"
+themesDir = "themes"
+theme = "hugo-whisper-theme"
+languageCode = 'en-us'
+title = 'Razor Component Tag Helpers'
+
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsUseClasses = true
+
+summaryLength = 30
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Docs"
+  url = "/docs/"
+  weight = 2
+
+[params]
+  google_analytics_id=""
+  homepage_button_link = '/docs'
+  homepage_button_text = 'Go to Documentation'
+  homepage_intro = 'Razor Component Tag Helpers is a one file ASP.NET Core library that allows you to write UI components while maintaining compatibility with Razor Pages and MVC.'
+  homepage_image = '/images/terminal.gif'
+
+  ## You can enable to add anchor links to header elements
+  enable_anchor_link = true
+
+  [params.homepage_meta_tags]
+    meta_description = "Razor Component Tag Helpers is an extension upon ASP.NET Core Tag Helpers to allow proper component-like UI composition without any external dependencies."
+    meta_og_title = "Razor Component Tag Helpers - TechGems"
+    meta_og_type = "website"
+    meta_og_url = "https://tag-helper-components.techgems.net"
+    meta_og_image = "https://raw.githubusercontent.com/JugglerX/hugo-whisper-theme/master/images/tn.png"
+    meta_og_description = "Hugo Whisper is a documentation theme built with Hugo."
+
+  [params.logo]
+      mobile = "/images/logo-mobile.svg"
+      standard  = "/images/logo.svg"

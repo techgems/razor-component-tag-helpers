@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagHelperComponents.Web", "TagHelperComponents.Web.csproj", "{47E1FDD2-3335-4991-861C-9478DC74A97C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorComponentTagHelpers.Web", "RazorComponentTagHelpers.Web.csproj", "{47E1FDD2-3335-4991-861C-9478DC74A97C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechGems.TagHelperComponents", "TagHelperComponents\TechGems.TagHelperComponents.csproj", "{F8CC60D4-7228-4789-873B-C8823F3A7AD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechGems.RazorComponentTagHelpers", "TagHelperComponents\TechGems.RazorComponentTagHelpers.csproj", "{F8CC60D4-7228-4789-873B-C8823F3A7AD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

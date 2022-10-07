@@ -8,14 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="docs\**" />
     <Compile Remove="TagHelperComponents\**" />
+    <Content Remove="docs\**" />
     <Content Remove="TagHelperComponents\**" />
+    <EmbeddedResource Remove="docs\**" />
     <EmbeddedResource Remove="TagHelperComponents\**" />
+    <None Remove="docs\**" />
     <None Remove="TagHelperComponents\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="TagHelperComponents\TechGems.TagHelperComponents.csproj" />
+    <ProjectReference Include="TagHelperComponents\TechGems.RazorComponentTagHelpers.csproj" />
   </ItemGroup>
 
 </Project>

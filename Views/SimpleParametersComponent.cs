@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using TechGems.TagHelperComponents;
+using TechGems.RazorComponentTagHelpers;
 
 
-namespace TagHelperComponents.Views;
+namespace RazorComponentTagHelpers.Views;
 
 [HtmlTargetElement("simple-parameters")]
 public class SimpleParametersComponent : RazorComponentTagHelper

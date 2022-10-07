@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TagHelperComponents.Pages
+namespace RazorComponentTagHelpers.Pages
 {
     public class IndexModel : PageModel
     {

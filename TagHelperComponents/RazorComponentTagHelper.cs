@@ -7,21 +7,21 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TechGems.TagHelperComponents;
+namespace TechGems.RazorComponentTagHelpers;
 
 /// <summary>
 /// The base class for a component tag helper that leverages a razor partial view. Sends itself as the view model for the razor template.
 /// </summary>
 public abstract class RazorComponentTagHelper : TagHelper
 {
-    private readonly string? _razorViewRoute;
+    protected readonly string _razorViewRoute;
 
     /// <summary>
     /// Creates the tag helper with a razor view route using default route.
     /// </summary>
     public RazorComponentTagHelper()
     {
-
+        _razorViewRoute = $"~/TagHelpers/{GetType().Namespace!.Split('.').Last()}/Default.cshtml";
     }
 
     /// <summary>
@@ -51,7 +51,7 @@ public abstract class RazorComponentTagHelper : TagHelper
     /// </summary>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
-    private IHtmlHelper GetHtmlHelper()
+    protected IHtmlHelper GetHtmlHelper()
     {
         if (ViewContext is null)
         {
@@ -122,9 +122,7 @@ public abstract class RazorComponentTagHelper : TagHelper
     /// <returns></returns>
     protected async Task RenderPartialView(TagHelperOutput output)
     {
-        string defaultViewPath = $"~/TagHelpers/{GetType().Namespace!.Split('.').Last()}/Default.cshtml";
-
-        await RenderPartialView(defaultViewPath, output);
+        await RenderPartialView(_razorViewRoute, output);
     }
 }
 

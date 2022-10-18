@@ -289,12 +289,12 @@ button.bg-primary:focus {
   background-color: #008d7e !important; }
 
 .bg-secondary {
-  background-color: #ffca28 !important; }
+  background-color: #f58220 !important; }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
 button.bg-secondary:focus {
-  background-color: #f4b800 !important; }
+  background-color: #d8690a !important; }
 
 .bg-success {
   background-color: #28a745 !important; }
@@ -384,7 +384,7 @@ button.bg-dark:focus {
   border-color: #00c0ac !important; }
 
 .border-secondary {
-  border-color: #ffca28 !important; }
+  border-color: #f58220 !important; }
 
 .border-success {
   border-color: #28a745 !important; }
@@ -5988,10 +5988,10 @@ a.text-primary:hover, a.text-primary:focus {
   color: #007467 !important; }
 
 .text-secondary {
-  color: #ffca28 !important; }
+  color: #f58220 !important; }
 
 a.text-secondary:hover, a.text-secondary:focus {
-  color: #dba500 !important; }
+  color: #c05d09 !important; }
 
 .text-success {
   color: #28a745 !important; }
@@ -6712,19 +6712,19 @@ a.text-dark:hover, a.text-dark:focus {
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #fff0c3; }
+  background-color: #fcdcc1; }
 
 .table-secondary th,
 .table-secondary td,
 .table-secondary thead th,
 .table-secondary tbody + tbody {
-  border-color: #ffe38f; }
+  border-color: #fabe8b; }
 
 .table-hover .table-secondary:hover {
-  background-color: #ffeaaa; }
+  background-color: #fbcea9; }
   .table-hover .table-secondary:hover > td,
   .table-hover .table-secondary:hover > th {
-    background-color: #ffeaaa; }
+    background-color: #fbcea9; }
 
 .table-success,
 .table-success > th,
@@ -7751,16 +7751,16 @@ p {
     transform: skewY(-5deg); }
 
 .strip-primary-gradient {
-  background-image: linear-gradient(to right, #00c0ac, #ffca28); }
+  background-image: linear-gradient(to right, #00c0ac, #f58220); }
 
 .strip-primary-gradient-top-bottom {
-  background-image: linear-gradient(to bottom, #00c0ac, #ffca28); }
+  background-image: linear-gradient(to bottom, #00c0ac, #f58220); }
 
 .strip-primary {
   background-color: #00c0ac; }
 
 .strip-secondary {
-  background-color: #ffca28; }
+  background-color: #f58220; }
 
 .strip-diagonal-right {
   margin-top: -100px;

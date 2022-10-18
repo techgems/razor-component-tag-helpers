@@ -25,8 +25,7 @@ summaryLength = 30
   homepage_button_link = '/docs'
   homepage_button_text = 'Go to Documentation'
   homepage_intro = 'Razor Component Tag Helpers is a one file ASP.NET Core library that allows you to write UI components while maintaining compatibility with Razor Pages and MVC.'
-  homepage_image = '/images/terminal.gif'
-
+  
   ## You can enable to add anchor links to header elements
   enable_anchor_link = true
 

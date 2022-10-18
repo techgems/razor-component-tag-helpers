@@ -96,11 +96,11 @@ sup {
   top: -.5em; }
 
 a {
-  color: #1de9b6;
+  color: #00c0ac;
   text-decoration: none;
   background-color: transparent; }
   a:hover {
-    color: #7af2d4;
+    color: #27ffe9;
     text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
@@ -281,12 +281,12 @@ template {
   vertical-align: text-top !important; }
 
 .bg-primary {
-  background-color: #1de9b6 !important; }
+  background-color: #00c0ac !important; }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #13c095 !important; }
+  background-color: #008d7e !important; }
 
 .bg-secondary {
   background-color: #ffca28 !important; }
@@ -381,7 +381,7 @@ button.bg-dark:focus {
   border-left: 0 !important; }
 
 .border-primary {
-  border-color: #1de9b6 !important; }
+  border-color: #00c0ac !important; }
 
 .border-secondary {
   border-color: #ffca28 !important; }
@@ -5982,10 +5982,10 @@ button.bg-dark:focus {
   color: #fff !important; }
 
 .text-primary {
-  color: #1de9b6 !important; }
+  color: #00c0ac !important; }
 
 a.text-primary:hover, a.text-primary:focus {
-  color: #10a983 !important; }
+  color: #007467 !important; }
 
 .text-secondary {
   color: #ffca28 !important; }
@@ -6695,19 +6695,19 @@ a.text-dark:hover, a.text-dark:focus {
 .table-primary,
 .table-primary > th,
 .table-primary > td {
-  background-color: #c0f9eb; }
+  background-color: #b8ede8; }
 
 .table-primary th,
 .table-primary td,
 .table-primary thead th,
 .table-primary tbody + tbody {
-  border-color: #89f4d9; }
+  border-color: #7aded4; }
 
 .table-hover .table-primary:hover {
-  background-color: #a9f7e4; }
+  background-color: #a4e8e1; }
   .table-hover .table-primary:hover > td,
   .table-hover .table-primary:hover > th {
-    background-color: #a9f7e4; }
+    background-color: #a4e8e1; }
 
 .table-secondary,
 .table-secondary > th,
@@ -6951,7 +6951,7 @@ a.text-dark:hover, a.text-dark:focus {
   .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
     width: 32px;
     height: 3px;
-    background-color: #1de9b6;
+    background-color: #00c0ac;
     border-radius: 3px;
     position: absolute;
     transition-property: transform;
@@ -7278,7 +7278,7 @@ p {
     flex: 1; }
 
 .header {
-  color: #1de9b6;
+  color: #00c0ac;
   background-color: #ffffff;
   display: flex;
   justify-content: space-between;
@@ -7414,7 +7414,7 @@ p {
   @media (min-width: 576px) {
     .logo {
       display: block;
-      width: 70px; } }
+      width: 120px; } }
   .logo img {
     width: 100%;
     height: auto; }
@@ -7425,7 +7425,7 @@ p {
 
 .logo-mobile {
   display: block;
-  width: 54px; }
+  width: 90px; }
   @media (min-width: 576px) {
     .logo-mobile {
       display: none; } }
@@ -7455,16 +7455,16 @@ p {
         display: inline-block;
         font-weight: normal;
         text-decoration: none;
-        color: #1de9b6; }
+        color: #00c0ac; }
         .main-menu > ul > li > a:hover {
           text-decoration: underline;
-          color: #1de9b6; }
+          color: #00c0ac; }
       .main-menu > ul > li.active > a {
         font-weight: bold; }
 
 .main-menu-mobile {
   position: fixed;
-  background: #1de9b6;
+  background: #00c0ac;
   top: 0;
   left: 0;
   width: 100%;
@@ -7553,12 +7553,12 @@ p {
     margin: 0;
     padding: 4px 0 4px 0; }
     .docs-menu ul li.active a {
-      color: #4beec5;
+      color: #00f3da;
       font-weight: 400; }
     .docs-menu ul li a {
       color: #212529; }
       .docs-menu ul li a:hover {
-        color: #1de9b6; }
+        color: #00c0ac; }
 
 .hamburger {
   padding: 10px 0 10px 10px;
@@ -7573,7 +7573,7 @@ p {
   .hamburger .hamburger-inner,
   .hamburger .hamburger-inner::before,
   .hamburger .hamburger-inner::after {
-    background: #1de9b6; }
+    background: #00c0ac; }
   .hamburger .hamburger-inner::after {
     width: 18px;
     right: 0; }
@@ -7585,17 +7585,17 @@ p {
   white-space: nowrap;
   display: inline-block;
   padding: 8px 15px 6px 15px;
-  background: #1de9b6;
+  background: #00c0ac;
   font-weight: normal;
   text-transform: uppercase;
-  color: white;
+  color: #c0fff8;
   text-decoration: none;
   -webkit-transition: all 0.15s ease;
   transition: all 0.15s ease;
   border-radius: 3px; }
   .button:hover {
     color: #fff;
-    background-color: #4beec5;
+    background-color: #00f3da;
     text-decoration: none; }
 
 .button-white {
@@ -7751,13 +7751,13 @@ p {
     transform: skewY(-5deg); }
 
 .strip-primary-gradient {
-  background-image: linear-gradient(to right, #1de9b6, #ffca28); }
+  background-image: linear-gradient(to right, #00c0ac, #ffca28); }
 
 .strip-primary-gradient-top-bottom {
-  background-image: linear-gradient(to bottom, #1de9b6, #ffca28); }
+  background-image: linear-gradient(to bottom, #00c0ac, #ffca28); }
 
 .strip-primary {
-  background-color: #1de9b6; }
+  background-color: #00c0ac; }
 
 .strip-secondary {
   background-color: #ffca28; }

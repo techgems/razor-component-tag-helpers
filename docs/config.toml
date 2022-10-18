@@ -39,5 +39,5 @@ summaryLength = 30
     meta_og_description = "Hugo Whisper is a documentation theme built with Hugo."
 
   [params.logo]
-      mobile = "/images/logo-mobile.svg"
-      standard  = "/images/logo.svg"
+      mobile = "/images/logo-rcth-mobile.svg"
+      standard  = "/images/logo-rcth.svg"

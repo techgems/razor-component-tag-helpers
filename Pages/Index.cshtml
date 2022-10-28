@@ -4,6 +4,7 @@
     ViewData["Title"] = "Home page";
 }
 
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -15,9 +16,28 @@
 
 <h2>Simple Parameter Component</h2>
 
-<simple-parameters sample="text"></simple-parameters>
+<simple-parameters sample="text">
+    <slot name="slot1">
+        <h1>This is your first slot.</h1>
+    </slot>
+    <slot name="slot2">
+        <simple-parameters sample="text">
+            <slot name="slot1">
+                <h1>This is your first nested slot.</h1>
+            </slot>
+            <slot name="slot2">
+                <h2>This is your second nested slot.</h2>
+                <hello-world></hello-world>
+                <parameters-children sample="text">
+                    <div>Child html</div>
+                </parameters-children>
+            </slot>
+        </simple-parameters>
+    </slot>
+</simple-parameters>
 
 <h2>Parameter Component with Children</h2>
+
 
 <parameters-children sample="text">
     <div>Child html</div>

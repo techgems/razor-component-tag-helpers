@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,6 +16,10 @@ namespace TechGems.RazorComponentTagHelpers;
 public abstract class RazorComponentTagHelper : TagHelper
 {
     protected readonly string _razorViewRoute;
+    protected readonly string _componentStackKey = "StackKey";
+
+    [HtmlAttributeNotBound]
+    protected RazorComponentTagHelper? ParentComponent { get; set; }
 
     /// <summary>
     /// Creates the tag helper with a razor view route using default route.
@@ -46,6 +51,9 @@ public abstract class RazorComponentTagHelper : TagHelper
     [HtmlAttributeNotBound]
     public TagHelperContent? ChildContent { get; set; }
 
+    [HtmlAttributeNotBound]
+    public Dictionary<string, TagHelperContent> NamedSlots { get; set; } = new Dictionary<string, TagHelperContent>();
+
     /// <summary>
     /// Gets the Html Helper from the View Context. Used for rendering partial views.
     /// </summary>
@@ -67,6 +75,51 @@ public abstract class RazorComponentTagHelper : TagHelper
     }
 
 
+    private void SetParentComponentStack(TagHelperContext context, Stack<RazorComponentTagHelper> parentComponentStack)
+    {
+        context.Items[_componentStackKey] = parentComponentStack;
+    }
+
+    private Stack<RazorComponentTagHelper> GetParentComponentStack(TagHelperContext context)
+    {
+        return (context.Items[_componentStackKey] as Stack<RazorComponentTagHelper>)!;
+    }
+
+    /// <summary>
+    /// Render the content of a slot in the base razor view.
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public TagHelperContent RenderSlot(string name)
+    {
+        return NamedSlots[name];
+    }
+
+    public override sealed void Init(TagHelperContext context)
+    {
+        if (!context.Items.ContainsKey(_componentStackKey))
+        {
+            var parentComponentStack = new Stack<RazorComponentTagHelper>();
+
+            ParentComponent = null;
+            parentComponentStack.Push(this);
+
+            SetParentComponentStack(context, parentComponentStack);
+        }
+        else
+        {
+            var parentComponentStack = GetParentComponentStack(context);
+
+            ParentComponent = parentComponentStack.Peek();
+
+            if(this is not RazorComponentSlotTagHelper) { 
+                parentComponentStack.Push(this);
+            }
+        }
+
+        base.Init(context);
+    }
+
     /// <summary>
     /// Default ProcessAsync method. Will render the default razor view if a route is not provided in the base class.
     /// </summary>
@@ -81,7 +134,7 @@ public abstract class RazorComponentTagHelper : TagHelper
             throw new ArgumentNullException(nameof(ViewContext));
         }
 
-        if(_razorViewRoute is null) 
+        if (_razorViewRoute is null) 
         { 
             await RenderPartialView(output);
         }

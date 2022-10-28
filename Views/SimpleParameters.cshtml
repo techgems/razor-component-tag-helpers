@@ -2,3 +2,11 @@
 @model SimpleParametersComponent
 
 <span>@Model.Sample</span>
+
+<div class="slot1">
+    @Model.RenderSlot("slot1")
+</div>
+
+<div class="slot2">
+    @Model.RenderSlot("slot2")
+</div>

@@ -10,35 +10,79 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
+<br />
+
 <h2>Hello World Component</h2>
 
 <hello-world></hello-world>
 
+<br />
+<br />
+
 <h2>Simple Parameter Component</h2>
 
-<simple-parameters sample="text">
+<simple-parameters sample="text"></simple-parameters>
+
+<br />
+<br />
+
+<h2>Parameter Component with Children</h2>
+
+<parameters-children sample="text">
+    <div>Child html</div>
+</parameters-children>
+
+<br />
+
+<h2>Parameter Component with Children - Fallback</h2>
+
+<parameters-children sample="text">
+</parameters-children>
+
+<br />
+
+<h2>Slotted Component</h2>
+
+<slot-component>
+    <h4>Child Content</h4>
     <slot name="slot1">
-        <h1>This is your first slot.</h1>
+        <h4>This is your first slot.</h4>
     </slot>
     <slot name="slot2">
-        <simple-parameters sample="text">
+        <h4>This is your second slot.</h4>
+    </slot>
+</slot-component>
+
+<br />
+
+<h2>Slotted Component with Nesting</h2>
+
+<slot-component>
+    <slot name="slot1">
+        <h4>This is your first slot.</h4>
+    </slot>
+    <slot name="slot2">
+        <slot-component sample="text">
             <slot name="slot1">
-                <h1>This is your first nested slot.</h1>
+                <h4>This is your first nested slot.</h4>
             </slot>
             <slot name="slot2">
-                <h2>This is your second nested slot.</h2>
+                <h4>This is your second nested slot.</h4>
                 <hello-world></hello-world>
                 <parameters-children sample="text">
                     <div>Child html</div>
                 </parameters-children>
             </slot>
-        </simple-parameters>
+        </slot-component>
     </slot>
-</simple-parameters>
+</slot-component>
 
-<h2>Parameter Component with Children</h2>
+<br />
 
+<h2>Slotted Component with Fallback</h2>
 
-<parameters-children sample="text">
-    <div>Child html</div>
-</parameters-children>
+<slot-component>
+    <slot name="slot1">
+        <h4>This is your first slot.</h4>
+    </slot>
+</slot-component>

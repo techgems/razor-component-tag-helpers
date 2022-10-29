@@ -4,5 +4,12 @@
 <span>@Model.Sample</span>
 
 <div>
-    @Model.ChildContent
+    @if (Model.IsChildContentNullOrEmpty)
+    {
+        <h5>This is the fallback.</h5>
+    }
+    else
+    {
+        @Model.ChildContent    
+    }
 </div>

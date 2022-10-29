@@ -52,7 +52,37 @@ public abstract class RazorComponentTagHelper : TagHelper
     public TagHelperContent? ChildContent { get; set; }
 
     [HtmlAttributeNotBound]
-    public Dictionary<string, TagHelperContent> NamedSlots { get; set; } = new Dictionary<string, TagHelperContent>();
+    internal Dictionary<string, TagHelperContent> NamedSlots { get; set; } = new Dictionary<string, TagHelperContent>();
+
+    /// <summary>
+    /// Property used for determining if you need a fallback on your child content.
+    /// </summary>
+    [HtmlAttributeNotBound]
+    public bool IsChildContentNullOrEmpty { 
+        get { 
+            if(ChildContent is null)
+                return true;
+
+            if(ChildContent.IsEmptyOrWhiteSpace)
+                return true;
+
+            return false;
+        } 
+    }
+
+    public bool IsSlotContentNullOrEmpty(string slotName)
+    {
+        if (!NamedSlots.ContainsKey(slotName))
+            return true;
+
+        if (NamedSlots[slotName] is null)
+            return true;
+
+        if (NamedSlots[slotName].IsEmptyOrWhiteSpace)
+            return true;
+
+        return false;
+    }
 
     /// <summary>
     /// Gets the Html Helper from the View Context. Used for rendering partial views.
@@ -92,7 +122,12 @@ public abstract class RazorComponentTagHelper : TagHelper
     /// <returns></returns>
     public TagHelperContent RenderSlot(string name)
     {
-        return NamedSlots[name];
+        var result = NamedSlots.TryGetValue(name, out var slot);
+
+        if (!result)
+            throw new ArgumentException("The slot could not be rendered because it doesn't exist in the slot dictionary in the parent component.");
+
+        return slot!;
     }
 
     public override sealed void Init(TagHelperContext context)

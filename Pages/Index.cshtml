@@ -36,53 +36,52 @@
 
 <h2>Parameter Component with Children - Fallback</h2>
 
-<parameters-children sample="text">
-</parameters-children>
+<parameters-children sample="text"></parameters-children>
 
 <br />
 
 <h2>Slotted Component</h2>
 
-<slot-component>
-    <h4>Child Content</h4>
-    <slot name="slot1">
+<card-sample>
+    <slot name="cardHeader">
         <h4>This is your first slot.</h4>
     </slot>
-    <slot name="slot2">
+    <h4>Child Content</h4>
+    <slot name="cardFooter">
         <h4>This is your second slot.</h4>
     </slot>
-</slot-component>
+</card-sample>
 
 <br />
 
 <h2>Slotted Component with Nesting</h2>
 
-<slot-component>
-    <slot name="slot1">
+<card-sample>
+    <slot name="cardHeader">
         <h4>This is your first slot.</h4>
     </slot>
-    <slot name="slot2">
-        <slot-component sample="text">
-            <slot name="slot1">
+    <slot name="cardFooter">
+        <card-sample sample="text">
+            <slot name="cardHeader">
                 <h4>This is your first nested slot.</h4>
             </slot>
-            <slot name="slot2">
+            <slot name="cardFooter">
                 <h4>This is your second nested slot.</h4>
                 <hello-world></hello-world>
                 <parameters-children sample="text">
                     <div>Child html</div>
                 </parameters-children>
             </slot>
-        </slot-component>
+        </card-sample>
     </slot>
-</slot-component>
+</card-sample>
 
 <br />
 
 <h2>Slotted Component with Fallback</h2>
 
-<slot-component>
-    <slot name="slot1">
+<card-sample>
+    <slot name="cardHeader">
         <h4>This is your first slot.</h4>
     </slot>
-</slot-component>
+</card-sample>

@@ -6,7 +6,9 @@ weight: 1
 
 ## Razor Component Tag Helpers
 
-Razor Component Tag Helpers is a one file ASP.NET Core library that allows you to write UI components while maintaining compatibility with Razor Pages and MVC. With this library you can create your own component-like tag helpers using Razor syntax that receive and render child elements effortlessly.
+Razor Component Tag Helpers is a minimalistic ASP.NET Core library that allows you to write UI components while maintaining compatibility with Razor Pages and MVC. With this library you can create your own component-like tag helpers using Razor syntax that receive and render child elements effortlessly.
+
+If you wish to see a functional application of this library in a dashboard template, please look at [this](https://github.com/techgems/dotnet-6-custom-db-identity) repository.
 
 ## What is the use case of this library?
 

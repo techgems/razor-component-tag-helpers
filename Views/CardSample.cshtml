@@ -1,0 +1,37 @@
+﻿@using RazorComponentTagHelpers.Views;
+@model CardSampleComponent
+
+<div>
+    <div class="cardHeader">
+        @if (Model.IsSlotContentNullOrEmpty("cardHeader"))
+        {
+            <h5>slot1 Fallback</h5>
+        }
+        else
+        {
+            @Model.RenderSlot("cardHeader")
+        }
+    </div>
+    <div class="child-content">
+        <span>
+            @if (Model.IsChildContentNullOrEmpty)
+            {
+                @: Child Content Fallback here
+            }
+            else
+            {
+                @Model.ChildContent
+            }
+        </span>
+    </div>
+    <div class="cardFooter">
+        @if (Model.IsSlotContentNullOrEmpty("cardFooter"))
+        {
+            <h5>slot2 Fallback</h5>
+        }
+        else
+        {
+            @Model.RenderSlot("cardFooter")
+        }
+    </div>
+</div>

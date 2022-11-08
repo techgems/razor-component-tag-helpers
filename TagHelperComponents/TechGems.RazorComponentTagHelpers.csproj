@@ -4,16 +4,15 @@
 		<TargetFramework>net6</TargetFramework>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.0.1</Version>
+		<Version>1.1.0-beta</Version>
 		<Authors>Carlos Jimenez</Authors>
 		<Company>Tech Gems</Company>
 		<Product>Razor Component Tag Helpers</Product>
-		<Description>Razor Component Tag Helpers is a small, single file library that lets you write tag helpers as Razor powered static components. Great to use when you want better UI composition but you just want to use MVC or Razor Pages.</Description>
-		<RepositoryUrl>https://github.com/techgems/server-components</RepositoryUrl>
+		<Description>Razor Component Tag Helpers is a small, minimalistic library that lets you write tag helpers as Razor powered static components. Great to use when you want better UI composition but you just want to use MVC or Razor Pages.</Description>
+		<RepositoryUrl>https://github.com/techgems/razor-component-tag-helpers</RepositoryUrl>
 		<RepositoryType>Public</RepositoryType>
 		<PackageTags>components;mvc;razor-pages;tag-helpers</PackageTags>
-		<AssemblyVersion>1.0.1</AssemblyVersion>
-		<FileVersion>1.0.1</FileVersion>
+		<FileVersion>1.1.0-beta</FileVersion>
 		<PackageId>TechGems.RazorComponentTagHelpers</PackageId>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>

@@ -36,7 +36,7 @@ public class RazorComponentSlotTagHelper : RazorComponentTagHelper
         var result = ParentComponent.NamedSlots.TryAdd(Name, childContent);
 
         if (!result)
-            throw new ArgumentException("A slot identifier has been repeated and was not processed. Slots require unique name values when used inside a single parent element");
+            throw new ArgumentException("A slot identifier has been repeated. Slots require unique name values when used inside a single parent element");
 
         output.SuppressOutput();
     }

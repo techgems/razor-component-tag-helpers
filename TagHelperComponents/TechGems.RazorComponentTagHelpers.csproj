@@ -4,7 +4,7 @@
 		<TargetFramework>net6</TargetFramework>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.1.0-beta</Version>
+		<Version>1.1.0</Version>
 		<Authors>Carlos Jimenez</Authors>
 		<Company>Tech Gems</Company>
 		<Product>Razor Component Tag Helpers</Product>
@@ -12,7 +12,7 @@
 		<RepositoryUrl>https://github.com/techgems/razor-component-tag-helpers</RepositoryUrl>
 		<RepositoryType>Public</RepositoryType>
 		<PackageTags>components;mvc;razor-pages;tag-helpers</PackageTags>
-		<FileVersion>1.1.0-beta</FileVersion>
+		<FileVersion>1.1.0</FileVersion>
 		<PackageId>TechGems.RazorComponentTagHelpers</PackageId>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>

@@ -7,7 +7,7 @@ weight: 2
 Installing Razor Component Tag Helpers is very easy. All you need to do is download the nuget package:
 
 ```s
-dotnet add package TechGems.RazorComponentTagHelpers --version 1.0.1
+dotnet add package TechGems.RazorComponentTagHelpers --version 1.1.0
 ```
 
 or alternatively you can even just copy and paste the necessary base class file located [here](https://github.com/techgems/razor-component-tag-helpers/tree/master/TagHelperComponents/RazorComponentTagHelper.cs) into your project and use it the same way it is explained in [Basic Usage](/docs/basic-usage).
@@ -16,6 +16,7 @@ As with all tag helpers, you will need to go to the `_ViewImports.cshtml` file a
 
 ```
 @addTagHelper *, Sample.Web
+@addTagHelper *, TechGems.RazorComponentTagHelpers
 ```
 
 This applies to any custom tag helper, but without this step, none of your tag helpers will be compiled as such.

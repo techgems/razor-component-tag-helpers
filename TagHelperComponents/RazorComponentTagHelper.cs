@@ -177,6 +177,15 @@ public abstract class RazorComponentTagHelper : TagHelper
         {
             await RenderPartialView(_razorViewRoute, output);
         }
+
+        if (this is not RazorComponentSlotTagHelper)
+        {
+            var stack = GetParentComponentStack(context);
+            if (stack.Count > 0 && stack.Peek() == this)
+            {
+                stack.Pop();
+            }
+        }
     }
 
     /// <summary>

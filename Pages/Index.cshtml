@@ -54,7 +54,7 @@
 
 <br />
 
-<h2>Slotted Component with Nesting</h2>
+<h2>Slotted Component with Additional Slot Nesting</h2>
 
 <card-sample>
     <slot name="cardHeader">
@@ -77,6 +77,17 @@
 </card-sample>
 
 <br />
+
+<h2>Slotted Component non-slot Component Nesting</h2>
+<card-sample>
+    <slot name="cardHeader">
+        <h4>This is your first slot.</h4>
+    </slot>
+    <hello-world />
+    <slot name="cardFooter">
+        <h2>This is your second slot.</h2>
+    </slot>
+</card-sample>
 
 <h2>Slotted Component with Fallback</h2>
 

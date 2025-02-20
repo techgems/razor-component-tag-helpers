@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Html;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.DependencyInjection;
@@ -58,16 +57,18 @@ public abstract class RazorComponentTagHelper : TagHelper
     /// Property used for determining if you need a fallback on your child content.
     /// </summary>
     [HtmlAttributeNotBound]
-    public bool IsChildContentNullOrEmpty { 
-        get { 
-            if(ChildContent is null)
+    public bool IsChildContentNullOrEmpty
+    {
+        get
+        {
+            if (ChildContent is null)
                 return true;
 
-            if(ChildContent.IsEmptyOrWhiteSpace)
+            if (ChildContent.IsEmptyOrWhiteSpace)
                 return true;
 
             return false;
-        } 
+        }
     }
 
     public bool IsSlotContentNullOrEmpty(string slotName)
@@ -147,7 +148,8 @@ public abstract class RazorComponentTagHelper : TagHelper
 
             ParentComponent = parentComponentStack.Peek();
 
-            if(this is not RazorComponentSlotTagHelper) { 
+            if (this is not RazorComponentSlotTagHelper)
+            {
                 parentComponentStack.Push(this);
             }
         }
@@ -169,13 +171,22 @@ public abstract class RazorComponentTagHelper : TagHelper
             throw new ArgumentNullException(nameof(ViewContext));
         }
 
-        if (_razorViewRoute is null) 
-        { 
+        if (_razorViewRoute is null)
+        {
             await RenderPartialView(output);
         }
         else
         {
             await RenderPartialView(_razorViewRoute, output);
+        }
+
+        if (this is not RazorComponentSlotTagHelper)
+        {
+            var stack = GetParentComponentStack(context);
+            if (stack.Count > 0 && stack.Peek() == this)
+            {
+                stack.Pop();
+            }
         }
     }
 
@@ -186,7 +197,7 @@ public abstract class RazorComponentTagHelper : TagHelper
     /// <param name="viewRoute"></param>
     /// <param name="output"></param>
     /// <returns></returns>
-    protected async Task RenderPartialView(string viewRoute, TagHelperOutput output) 
+    protected async Task RenderPartialView(string viewRoute, TagHelperOutput output)
     {
         var childContent = await output.GetChildContentAsync();
 
